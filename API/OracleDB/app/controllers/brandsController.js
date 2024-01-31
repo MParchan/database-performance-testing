@@ -176,8 +176,8 @@ const deleteBrand = asyncHandler(async (req, res, next) => {
         try {
             const { id } = req.params;
             connection = await oracledb.getConnection();
-            const brand = await connection.execute("DELETE FROM Pdb_brand WHERE BrandId = :1", [id]);
-            if (!brand.rowsAffected) {
+            const result = await connection.execute("DELETE FROM Pdb_brand WHERE BrandId = :1", [id]);
+            if (!result.rowsAffected) {
                 throw new Error("Brand not found");
             }
             await connection.execute("COMMIT");

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "DatabasePerfomanceTest-OracleDB",
-    "dateExported": "2024-01-31T17:46:05.409Z",
+    "dateExported": "2024-01-31T18:18:29.069Z",
     "version": "1.1",
     "folders": [
         {
@@ -24,6 +24,13 @@
             "containerId": "",
             "created": "2024-01-31T15:27:02.753Z",
             "sortNum": 30000
+        },
+        {
+            "_id": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "Roles",
+            "containerId": "",
+            "created": "2024-01-31T18:09:44.523Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
@@ -258,6 +265,86 @@
             "sortNum": 180000,
             "created": "2024-01-31T17:44:15.144Z",
             "modified": "2024-01-31T17:44:44.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "07f9f523-c180-42dd-a94f-93890c3fbd21",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "allRoles",
+            "url": "http://localhost:5000/api/roles",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-01-31T18:09:53.178Z",
+            "modified": "2024-01-31T18:10:04.169Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a015f700-ea6f-4dbd-b060-cad75db0faf3",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "getRole",
+            "url": "http://localhost:5000/api/roles/3",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2024-01-31T18:15:27.018Z",
+            "modified": "2024-01-31T18:15:37.110Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4c89f633-abcc-4a4f-ba1f-9714eba53851",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "createRole",
+            "url": "http://localhost:5000/api/roles",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2024-01-31T18:16:01.689Z",
+            "modified": "2024-01-31T18:16:53.945Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"New role\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e9ac8713-ca68-475a-b2c2-ea7d388da745",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "updateRole",
+            "url": "http://localhost:5000/api/roles/4",
+            "method": "PUT",
+            "sortNum": 220000,
+            "created": "2024-01-31T18:17:18.417Z",
+            "modified": "2024-01-31T18:17:43.958Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Update role\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ccae520b-ec8d-4ad3-b301-2e9ec585cf82",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "f787c580-d139-4f02-89af-f41c1ee8e42d",
+            "name": "deleteRole",
+            "url": "http://localhost:5000/api/roles/4",
+            "method": "DELETE",
+            "sortNum": 230000,
+            "created": "2024-01-31T18:17:58.105Z",
+            "modified": "2024-01-31T18:18:09.715Z",
             "headers": [],
             "params": [],
             "tests": []
