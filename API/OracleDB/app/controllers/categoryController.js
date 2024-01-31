@@ -11,22 +11,14 @@ const allCategories = asyncHandler(async (req, res, next) => {
         try {
             connection = await oracledb.getConnection();
             const result = await connection.execute("SELECT * FROM Pdb_Category");
-            await connection.close();
-            const jsonData = result.rows.map((row) => {
-                const jsonRow = {};
-                result.metaData.forEach((column, index) => {
-                    const columnName = column.name;
-                    const columnValue = row[index];
-                    if (column.type === oracledb.BUFFER) {
-                        jsonRow[columnName] = JSON.parse(columnValue.toString());
-                    } else {
-                        jsonRow[columnName] = columnValue;
-                    }
-                });
-
-                return jsonRow;
+            const jsonCategories = result.rows.map((row) => {
+                const jsonCategory = {
+                    categoryId: row[0],
+                    name: row[1],
+                };
+                return jsonCategory;
             });
-            res.status(200).json(jsonData);
+            res.status(200).json(jsonCategories);
         } catch (err) {
             console.log(err);
             res.status(500);
@@ -101,11 +93,11 @@ const getCategory = asyncHandler(async (req, res, next) => {
         try {
             const { id } = req.params;
             connection = await oracledb.getConnection();
-            const brand = await connection.execute("SELECT * FROM Pdb_Category WHERE CategoryId = :1", [id]);
-            if (brand.rows.length === 0) {
+            const category = await connection.execute("SELECT * FROM Pdb_Category WHERE CategoryId = :1", [id]);
+            if (category.rows.length === 0) {
                 throw new Error("Category not found");
             }
-            res.status(200).json({ categoryId: brand.rows[0][0], name: brand.rows[0][1] });
+            res.status(200).json({ categoryId: category.rows[0][0], name: category.rows[0][1] });
         } catch (err) {
             console.log(err);
             res.status(404);

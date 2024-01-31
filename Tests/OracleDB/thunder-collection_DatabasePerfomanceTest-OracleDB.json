@@ -1,0 +1,266 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "DatabasePerfomanceTest-OracleDB",
+    "dateExported": "2024-01-31T17:46:05.409Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "Brands",
+            "containerId": "",
+            "created": "2024-01-31T14:44:16.052Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "Categories",
+            "containerId": "",
+            "created": "2024-01-31T14:59:54.684Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "Products",
+            "containerId": "",
+            "created": "2024-01-31T15:27:02.753Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c371d7df-1dc9-4b23-9092-de9773ce65db",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "getBrand",
+            "url": "http://localhost:5000/api/brands/1004",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-30T22:40:31.423Z",
+            "modified": "2024-01-31T14:45:07.083Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "02947935-1f2f-4042-bc0b-22eda33a3164",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "allBrands",
+            "url": "http://localhost:5000/api/brands",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-01-30T22:41:55.680Z",
+            "modified": "2024-01-30T22:42:04.357Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "34a723c1-0835-43af-a922-2f5e7c3bdccf",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "createBrand",
+            "url": "http://localhost:5000/api/brands",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-30T23:18:33.546Z",
+            "modified": "2024-01-31T11:56:59.034Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"BrandTest1\",\n  \"country\": \"countryTest\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f48c1ae1-b7c8-4b7e-9074-2aac05e4f254",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "updateBrand",
+            "url": "http://localhost:5000/api/brands/1001",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-01-31T12:01:36.805Z",
+            "modified": "2024-01-31T12:12:00.325Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "522526e9-7c20-441b-9d87-ced887075ac7",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "96fd899d-8fc8-4c40-b4a2-e5ff1b7d2958",
+            "name": "deleteBrand",
+            "url": "http://localhost:5000/api/brands/1004",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-01-31T12:13:55.361Z",
+            "modified": "2024-01-31T12:20:18.971Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "398adb6c-7196-49dd-91f5-257606d507a9",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "allCategories",
+            "url": "http://localhost:5000/api/categories",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-01-31T15:00:11.050Z",
+            "modified": "2024-01-31T15:00:26.270Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "731dcd2a-b9c0-48db-acfc-2c48d26f9492",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "getCategory",
+            "url": "http://localhost:5000/api/categories/1000",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-01-31T15:00:53.345Z",
+            "modified": "2024-01-31T17:06:22.951Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "961dcf15-4117-40be-ab34-cc79686f8024",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "createCategory",
+            "url": "http://localhost:5000/api/categories",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-01-31T15:01:24.953Z",
+            "modified": "2024-01-31T15:01:49.238Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"New category :)\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "95a9e2bf-d6d8-4205-825c-d86620471396",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "updateCategory",
+            "url": "http://localhost:5000/api/categories/1001",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-01-31T15:02:07.385Z",
+            "modified": "2024-01-31T15:02:47.114Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Updated category :(\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1cc7758d-b203-4f62-8fc6-e4faac3c40ba",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "e8b8c2bf-a51e-4b3a-ac63-ae8c52639083",
+            "name": "deleteCategory",
+            "url": "http://localhost:5000/api/categories/1001",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-01-31T15:03:03.553Z",
+            "modified": "2024-01-31T15:03:17.369Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4e10059b-f81b-4d6c-b03e-2257d7436fe6",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "allProducts",
+            "url": "http://localhost:5000/api/products",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-01-31T15:27:10.791Z",
+            "modified": "2024-01-31T15:27:24.420Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "377e4c99-2ad6-46e2-8302-702d44f19f2b",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "getProduct",
+            "url": "http://localhost:5000/api/products/10010",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2024-01-31T15:29:07.553Z",
+            "modified": "2024-01-31T17:32:25.116Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b45ca9cd-b656-45eb-b651-96226cf97c8f",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "createProduct",
+            "url": "http://localhost:5000/api/products",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2024-01-31T15:29:51.862Z",
+            "modified": "2024-01-31T17:42:02.966Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"brandId\" : 100,\n  \"categoryId\": 120,\n  \"name\": \"New product\",\n  \"description\": \"Description\",\n  \"price\": 169.99,\n  \"quantityAvailable\": 12\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "806a4f84-cfd4-4299-8ea1-76a34a6e4ba6",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "updateProduct",
+            "url": "http://localhost:5000/api/products/10010",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2024-01-31T17:30:58.841Z",
+            "modified": "2024-01-31T17:40:09.611Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"brandId\" : \"100\",\n  \"categoryId\": 13,\n  \"name\": \"New product edit\",\n  \"description\": \"Description edit\",\n  \"price\": \"17.99\",\n  \"quantityAvailable\": 10\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e3a146bd-bb2d-4839-aa4c-19086e81d0f7",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
+            "name": "deleteProduct",
+            "url": "http://localhost:5000/api/products/10011",
+            "method": "DELETE",
+            "sortNum": 180000,
+            "created": "2024-01-31T17:44:15.144Z",
+            "modified": "2024-01-31T17:44:44.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

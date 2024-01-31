@@ -11,22 +11,15 @@ const allBrands = asyncHandler(async (req, res, next) => {
         try {
             connection = await oracledb.getConnection();
             const result = await connection.execute("SELECT * FROM Pdb_brand");
-            await connection.close();
-            const jsonData = result.rows.map((row) => {
-                const jsonRow = {};
-                result.metaData.forEach((column, index) => {
-                    const columnName = column.name;
-                    const columnValue = row[index];
-                    if (column.type === oracledb.BUFFER) {
-                        jsonRow[columnName] = JSON.parse(columnValue.toString());
-                    } else {
-                        jsonRow[columnName] = columnValue;
-                    }
-                });
-
-                return jsonRow;
+            const jsonBrands = result.rows.map((row) => {
+                const jsonBrand = {
+                    brandId: row[0],
+                    name: row[1],
+                    country: row[2],
+                };
+                return jsonBrand;
             });
-            res.status(200).json(jsonData);
+            res.status(200).json(jsonBrands);
         } catch (err) {
             console.log(err);
             res.status(500);
