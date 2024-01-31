@@ -2,15 +2,15 @@ import asyncHandler from "express-async-handler";
 import oracledb from "oracledb";
 import { initialize } from "../config/dbConnection.js";
 
-//@desc Get all brands
-//@route GET /api/brands
+//@desc Get all categories
+//@route GET /api/categories
 //@access public
-const allBrands = asyncHandler(async (req, res, next) => {
+const allCategories = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
         let connection;
         try {
             connection = await oracledb.getConnection();
-            const result = await connection.execute("SELECT * FROM Pdb_brand");
+            const result = await connection.execute("SELECT * FROM Pdb_Category");
             await connection.close();
             const jsonData = result.rows.map((row) => {
                 const jsonRow = {};
@@ -49,28 +49,27 @@ const allBrands = asyncHandler(async (req, res, next) => {
     }
 });
 
-//@desc Create new brand
-//@route POST /api/brands
+//@desc Create new category
+//@route POST /api/categories
 //@access public
-const createBrand = asyncHandler(async (req, res, next) => {
+const createCategory = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
         let connection;
         try {
-            const { name, country } = req.body;
-            if (!name || !country) {
+            const { name } = req.body;
+            if (!name) {
                 throw new Error("All fields are mandatory");
             }
             connection = await oracledb.getConnection();
-            const result = await connection.execute("SELECT MAX(BrandId) AS maxBrandId FROM Pdb_brand");
-            const maxBrandId = result.rows[0][0];
-            const newBrandId = maxBrandId + 1;
-            await connection.execute("INSERT INTO Pdb_brand (BrandId, Name, Country) VALUES (:1, :2, :3)", [
-                newBrandId,
+            const result = await connection.execute("SELECT MAX(CategoryId) AS maxCategoryId FROM Pdb_Category");
+            const maxCategoryId = result.rows[0][0];
+            const newCategoryId = maxCategoryId + 1;
+            await connection.execute("INSERT INTO Pdb_Category (CategoryId, Name) VALUES (:1, :2)", [
+                newCategoryId,
                 name,
-                country,
             ]);
             await connection.execute("COMMIT");
-            res.status(201).json({ brandId: newBrandId, name: name, country: country });
+            res.status(201).json({ categoryId: newCategoryId, name: name });
         } catch (err) {
             console.log(err);
             res.status(400);
@@ -93,20 +92,20 @@ const createBrand = asyncHandler(async (req, res, next) => {
     }
 });
 
-//@desc Get brand
-//@route GET /api/brands/:id
+//@desc Get category
+//@route GET /api/categories/:id
 //@access public
-const getBrand = asyncHandler(async (req, res, next) => {
+const getCategory = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
         let connection;
         try {
             const { id } = req.params;
             connection = await oracledb.getConnection();
-            const brand = await connection.execute("SELECT * FROM Pdb_brand WHERE BrandId = :1", [id]);
+            const brand = await connection.execute("SELECT * FROM Pdb_Category WHERE CategoryId = :1", [id]);
             if (brand.rows.length === 0) {
-                throw new Error("Brand not found");
+                throw new Error("Category not found");
             }
-            res.status(200).json({ brandId: brand.rows[0][0], name: brand.rows[0][1], country: brand.rows[0][2] });
+            res.status(200).json({ categoryId: brand.rows[0][0], name: brand.rows[0][1] });
         } catch (err) {
             console.log(err);
             res.status(404);
@@ -129,29 +128,24 @@ const getBrand = asyncHandler(async (req, res, next) => {
     }
 });
 
-//@desc Update brand
-//@route PUT /api/brands/:id
+//@desc Update category
+//@route PUT /api/categories/:id
 //@access public
-const updateBrand = asyncHandler(async (req, res, next) => {
+const updateCategory = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
         let connection;
         try {
             const { id } = req.params;
-            const { name, country } = req.body;
+            const { name } = req.body;
             connection = await oracledb.getConnection();
-            const brand = await connection.execute("SELECT * FROM Pdb_brand WHERE BrandId = :1", [id]);
-            if (brand.rows.length === 0) {
-                throw new Error("Brand not found");
+            const category = await connection.execute("SELECT * FROM Pdb_Category WHERE CategoryId = :1", [id]);
+            if (category.rows.length === 0) {
+                throw new Error("Category not found");
             }
-            let updatedName = name ? name : brand.rows[0][1];
-            let updatedCountry = country ? country : brand.rows[0][2];
-            await connection.execute("UPDATE Pdb_brand SET Name = :1, Country = :2 WHERE BrandId = :3", [
-                updatedName,
-                updatedCountry,
-                id,
-            ]);
+            let updatedName = name ? name : category.rows[0][1];
+            await connection.execute("UPDATE Pdb_Category SET Name = :1 WHERE CategoryId = :3", [updatedName, id]);
             await connection.execute("COMMIT");
-            res.status(200).json({ brandId: Number(id), name: updatedName, country: updatedCountry });
+            res.status(200).json({ categoryId: Number(id), name: updatedName });
         } catch (err) {
             console.log(err);
             res.status(404);
@@ -174,21 +168,21 @@ const updateBrand = asyncHandler(async (req, res, next) => {
     }
 });
 
-//@desc Delete brand
-//@route DELETE /api/brands/:id
+//@desc Delete category
+//@route DELETE /api/categories/:id
 //@access public
-const deleteBrand = asyncHandler(async (req, res, next) => {
+const deleteCategory = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
         let connection;
         try {
             const { id } = req.params;
             connection = await oracledb.getConnection();
-            const brand = await connection.execute("DELETE FROM Pdb_brand WHERE BrandId = :1", [id]);
-            if (!brand.rowsAffected) {
-                throw new Error("Brand not found");
+            const category = await connection.execute("DELETE FROM Pdb_Category WHERE CategoryId = :1", [id]);
+            if (!category.rowsAffected) {
+                throw new Error("Category not found");
             }
             await connection.execute("COMMIT");
-            res.status(200).json({ message: `Successfully removed brand with id: ${id}` });
+            res.status(200).json({ message: `Successfully removed category with id: ${id}` });
         } catch (err) {
             console.log(err);
             next(err);
@@ -211,4 +205,4 @@ const deleteBrand = asyncHandler(async (req, res, next) => {
     }
 });
 
-export { allBrands, createBrand, getBrand, updateBrand, deleteBrand };
+export { allCategories, createCategory, getCategory, updateCategory, deleteCategory };
