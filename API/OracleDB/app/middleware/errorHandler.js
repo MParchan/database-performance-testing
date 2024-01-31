@@ -4,7 +4,7 @@ const errorHandler = (err, req, res, next) => {
     const statusCode = res ? (res.statusCode ? res.statusCode : 500) : 500;
     switch (statusCode) {
         case constants.VALIDATION_ERROR:
-            res.json({ title: "Validation Failed", message: err.message, stackTrace: err.stack });
+            res.json({ title: "Bad Request", message: err.message, stackTrace: err.stack });
             break;
         case constants.UNATHORIZED:
             res.json({ title: "Unathorized", message: err.message, stackTrace: err.stack });
