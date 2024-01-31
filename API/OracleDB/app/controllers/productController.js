@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 import oracledb from "oracledb";
-import { initialize, close } from "../config/dbConnection.js";
+import { initialize } from "../config/dbConnection.js";
 
 //@desc Get all products
 //@route GET /api/products
@@ -18,7 +18,6 @@ const getProducts = asyncHandler(async (req, res) => {
     }
     initialize()
         .then(() => queryDatabase())
-        .then(() => close())
         .catch((err) => console.error(err));
 });
 
@@ -42,7 +41,6 @@ const createProduct = asyncHandler(async (req, res) => {
     }
     initialize()
         .then(() => queryDatabase())
-        .then(() => close())
         .catch((err) => console.error(err));
 });
 

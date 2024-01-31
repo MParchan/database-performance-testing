@@ -1,7 +1,7 @@
 import { constants } from "../constants.js";
 
 const errorHandler = (err, req, res, next) => {
-    const statusCode = res.statusCode ? res.statusCode : 500;
+    const statusCode = res ? (res.statusCode ? res.statusCode : 500) : 500;
     switch (statusCode) {
         case constants.VALIDATION_ERROR:
             res.json({ title: "Validation Failed", message: err.message, stackTrace: err.stack });
