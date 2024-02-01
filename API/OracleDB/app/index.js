@@ -1,6 +1,5 @@
 import express from "express";
 import brandsRoutes from "./routes/brandsRoutes.js";
-import categoriesRoutes from "./routes/categoriesRoutes.js";
 import productsRoutes from "./routes/productsRoutes.js";
 import rolesRoutes from "./routes/rolesRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
