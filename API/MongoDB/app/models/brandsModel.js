@@ -1,19 +1,18 @@
 import mongoose from "mongoose";
 
-const brandSchema = mongoose.Schema(
-    {
-        name: {
-            type: String,
-            require: [true, "Brand name is required"],
-        },
-        country: {
-            type: String,
-            require: [true, "Brand name is required"],
-        },
+const brandSchema = mongoose.Schema({
+    categoryId: {
+        type: Number,
+        required: [true, "Category id is required"],
     },
-    {
-        timestamps: true,
-    }
-);
+    name: {
+        type: String,
+        require: [true, "Brand name is required"],
+    },
+    country: {
+        type: String,
+        require: [true, "Brand name is required"],
+    },
+});
 
-export default mongoose.model("Brand", brandSchema);
+export default mongoose.model("Brand", brandSchema, "Brand");

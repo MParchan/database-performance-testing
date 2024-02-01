@@ -21,12 +21,12 @@ const allCategories = asyncHandler(async (req, res, next) => {
 //@access public
 const createCategory = asyncHandler(async (req, res, next) => {
     try {
-        const { name } = req.body;
-        if (!name) {
-            res.status(400);
-            throw new Error("All fields are mandatory");
+        const { categoryId, name } = req.body;
+        if (!name || !categoryId) {
+            throw new ErrorWithStatus("All fields are mandatory", 400);
         }
         const category = await Category.create({
+            categoryId,
             name,
         });
         res.status(201).json(category);
