@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "DatabasePerfomanceTest-OracleDB",
-    "dateExported": "2024-02-01T00:38:35.125Z",
+    "dateExported": "2024-02-01T02:01:08.525Z",
     "version": "1.1",
     "folders": [
         {
@@ -45,6 +45,13 @@
             "containerId": "",
             "created": "2024-01-31T21:54:11.751Z",
             "sortNum": 70000
+        },
+        {
+            "_id": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "Events",
+            "containerId": "",
+            "created": "2024-02-01T00:58:05.925Z",
+            "sortNum": 80000
         }
     ],
     "requests": [
@@ -391,12 +398,12 @@
             "method": "POST",
             "sortNum": 250000,
             "created": "2024-01-31T19:57:34.169Z",
-            "modified": "2024-01-31T22:02:51.962Z",
+            "modified": "2024-02-01T01:09:05.573Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\": \"admin1@example.com\",\n  \"password\": \"adminpassword1\"\n}",
+                "raw": "{\n  \"email\": \"j@k.com\",\n  \"password\": \"user123\"\n}",
                 "form": []
             },
             "tests": []
@@ -494,6 +501,98 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ0MDgyLCJleHAiOjE3MDY3ODAwODJ9.bV04cjAJkPgAWp2Ywst6UmVXQYRnJTZWybna_fOuFmk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a75bb3e9-d331-4fc5-a1e1-ebcae949965c",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "allEvents",
+            "url": "http://localhost:5000/api/events",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2024-02-01T00:58:16.259Z",
+            "modified": "2024-02-01T01:08:23.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "df10c5c2-3905-4ee9-a05b-b122f73eada4",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "createEvent",
+            "url": "http://localhost:5000/api/events",
+            "method": "POST",
+            "sortNum": 330000,
+            "created": "2024-02-01T01:08:35.861Z",
+            "modified": "2024-02-01T01:12:37.454Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"New event\",\n    \"description\": \"Description\",\n    \"date\": \"2024-11-23T19:59:20.000Z\"\n  }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ5ODQyLCJleHAiOjE3MDY3ODU4NDJ9.gCMLhKd2ee7AFPkhhY8NQstm89aagr3iHMQbPEHxjTo"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e173fbdc-8779-4746-bb69-be431a6ac629",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "getEvent",
+            "url": "http://localhost:5000/api/events/1001",
+            "method": "GET",
+            "sortNum": 340000,
+            "created": "2024-02-01T01:23:50.564Z",
+            "modified": "2024-02-01T01:24:05.356Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "585d1b50-1170-4c64-af75-398fe6f5a2a6",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "getUserEvents",
+            "url": "http://localhost:5000/api/events/user",
+            "method": "GET",
+            "sortNum": 350000,
+            "created": "2024-02-01T01:33:50.403Z",
+            "modified": "2024-02-01T01:39:50.183Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ5ODQyLCJleHAiOjE3MDY3ODU4NDJ9.gCMLhKd2ee7AFPkhhY8NQstm89aagr3iHMQbPEHxjTo"
+            },
+            "tests": []
+        },
+        {
+            "_id": "69546d18-afd3-4264-9f3b-dbe1184faf49",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6cbcdcd8-d1e0-43ab-85fb-fd42bd75fa17",
+            "name": "joinEvent",
+            "url": "http://localhost:5000/api/events/join",
+            "method": "POST",
+            "sortNum": 360000,
+            "created": "2024-02-01T01:53:51.719Z",
+            "modified": "2024-02-01T02:00:15.929Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"eventId\": []\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ5ODQyLCJleHAiOjE3MDY3ODU4NDJ9.gCMLhKd2ee7AFPkhhY8NQstm89aagr3iHMQbPEHxjTo"
             },
             "tests": []
         }
