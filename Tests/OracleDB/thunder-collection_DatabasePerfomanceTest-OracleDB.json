@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "DatabasePerfomanceTest-OracleDB",
-    "dateExported": "2024-01-31T18:18:29.069Z",
+    "dateExported": "2024-02-01T00:38:35.125Z",
     "version": "1.1",
     "folders": [
         {
@@ -31,6 +31,20 @@
             "containerId": "",
             "created": "2024-01-31T18:09:44.523Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "6660001c-6a2c-4110-be0b-180750ab8cff",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-01-31T19:13:01.471Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "c4c8a2ac-b2c2-4d11-8963-b12a5c4a48d0",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2024-01-31T21:54:11.751Z",
+            "sortNum": 70000
         }
     ],
     "requests": [
@@ -208,11 +222,11 @@
             "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
             "containerId": "7f340c68-7584-4f6e-b6ab-0aabfa397f3d",
             "name": "getProduct",
-            "url": "http://localhost:5000/api/products/10010",
+            "url": "http://localhost:5000/api/products/10",
             "method": "GET",
             "sortNum": 140000,
             "created": "2024-01-31T15:29:07.553Z",
-            "modified": "2024-01-31T17:32:25.116Z",
+            "modified": "2024-02-01T00:28:43.842Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -347,6 +361,140 @@
             "modified": "2024-01-31T18:18:09.715Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0a834dee-014d-418e-a691-0514d9b3776b",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6660001c-6a2c-4110-be0b-180750ab8cff",
+            "name": "registration",
+            "url": "http://localhost:5000/api/users/register",
+            "method": "POST",
+            "sortNum": 240000,
+            "created": "2024-01-31T19:13:31.165Z",
+            "modified": "2024-01-31T22:07:10.903Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Jan\",\n  \"lastName\": \"Kowalski\",\n  \"email\": \"j1@k.com\",\n  \"phoneNumber\": 123456789,\n  \"password\": \"user123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "888c83bc-860d-436d-8d31-13b61c9bbc04",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6660001c-6a2c-4110-be0b-180750ab8cff",
+            "name": "loginUser",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 250000,
+            "created": "2024-01-31T19:57:34.169Z",
+            "modified": "2024-01-31T22:02:51.962Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin1@example.com\",\n  \"password\": \"adminpassword1\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8da26f1b-eafa-4b92-8c82-7cdf5b24c700",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6660001c-6a2c-4110-be0b-180750ab8cff",
+            "name": "currentInfo",
+            "url": "http://localhost:5000/api/users/current",
+            "method": "GET",
+            "sortNum": 260000,
+            "created": "2024-01-31T20:32:32.889Z",
+            "modified": "2024-01-31T22:06:53.330Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzM4Nzk2LCJleHAiOjE3MDY3Mzg5NzZ9.ZFguy6XQjC_3XKS-aGF7GFAv5fam0M74eep_3dUMASE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ddeaf5dc-be2e-4f5f-8102-8cc64a40594a",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "c4c8a2ac-b2c2-4d11-8963-b12a5c4a48d0",
+            "name": "allOrders",
+            "url": "http://localhost:5000/api/orders",
+            "method": "GET",
+            "sortNum": 270000,
+            "created": "2024-01-31T21:54:19.462Z",
+            "modified": "2024-02-01T00:26:08.434Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ0MDgyLCJleHAiOjE3MDY3ODAwODJ9.bV04cjAJkPgAWp2Ywst6UmVXQYRnJTZWybna_fOuFmk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b2376a12-3c4c-472e-a484-d9a18aec8f06",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "6660001c-6a2c-4110-be0b-180750ab8cff",
+            "name": "loginAdmin",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2024-01-31T22:05:04.884Z",
+            "modified": "2024-01-31T22:06:36.946Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"admin123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f3deb407-215e-4fdb-8006-4c71756b879b",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "c4c8a2ac-b2c2-4d11-8963-b12a5c4a48d0",
+            "name": "getOrder",
+            "url": "http://localhost:5000/api/orders/1002",
+            "method": "GET",
+            "sortNum": 290000,
+            "created": "2024-01-31T23:28:18.201Z",
+            "modified": "2024-02-01T00:36:48.770Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ0MDgyLCJleHAiOjE3MDY3ODAwODJ9.bV04cjAJkPgAWp2Ywst6UmVXQYRnJTZWybna_fOuFmk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cf2c7512-448d-4dc8-a515-5a7f259dba64",
+            "colId": "2ac921fa-4aa4-49d5-9f11-6924772cb68d",
+            "containerId": "c4c8a2ac-b2c2-4d11-8963-b12a5c4a48d0",
+            "name": "createOrder",
+            "url": "http://localhost:5000/api/orders",
+            "method": "POST",
+            "sortNum": 300000,
+            "created": "2024-01-31T23:34:10.559Z",
+            "modified": "2024-02-01T00:28:15.390Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"products\": [\n    {\n      \"id\": 10,\n      \"quantity\": 1\n    },\n    {\n      \"id\": 11,\n      \"quantity\": 1\n    }\n  ]\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAwOCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJmaXJzdE5hbWUiOiJBZG1pbiIsImxhc3ROYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifSwiaWF0IjoxNzA2NzQ0MDgyLCJleHAiOjE3MDY3ODAwODJ9.bV04cjAJkPgAWp2Ywst6UmVXQYRnJTZWybna_fOuFmk"
+            },
             "tests": []
         }
     ]

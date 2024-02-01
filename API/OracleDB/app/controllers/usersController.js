@@ -6,7 +6,7 @@ import ErrorWithStatus from "../middleware/errorWithStatus.js";
 import { initialize } from "../config/dbConnection.js";
 
 //@desc User registration
-//@route GET /api/users/register
+//@route POST /api/users/register
 //@access public
 const registerUser = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
@@ -57,7 +57,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
 });
 
 //@desc User login
-//@route GET /api/users/register
+//@route POST /api/users/register
 //@access public
 const loginUser = asyncHandler(async (req, res, next) => {
     async function queryDatabase() {
@@ -86,7 +86,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
                     },
                 },
                 process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: "1m" }
+                { expiresIn: "10h" }
             );
             res.status(200).json({ accessToken });
         } catch (err) {
